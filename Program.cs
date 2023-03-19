@@ -9,3 +9,23 @@
 // ["1234", "1567", "-2", "computer science"] -> ["-2"]
 // ["Russia", "Denmark", "Kazan"] -> []
 
+string[] array = { "Hi", "67", "3317", "world" , "mom" , "father" };
+Console.Write($"[{String.Join(", ", array)}]");
+
+string[] arrayThreeChar = FindThreeCharElement(array);
+
+Console.WriteLine($" -> [{String.Join(", ", arrayThreeChar)}]");
+
+string[] FindThreeCharElement(string[] array)
+{
+    string[] result = new string[array.Length];
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i].Length <= 3)
+        {
+            result[i] = array[i];
+        }
+    }
+    result = result.Where(x => x != null).ToArray();
+    return result;
+}
